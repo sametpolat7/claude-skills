@@ -4,7 +4,9 @@
 
 ## Skills
 
-The first skills arrive in v1.0.0.
+| Skill | What it does | How to use |
+|---|---|---|
+| [`commit-plan`](skills/commit-plan/SKILL.md) | Splits every uncommitted change into commit-ready groups, writes a Conventional Commits title for each, and prints a ready-to-run block that commits and pushes them in dependency order. It only reads: it never stages, commits or pushes. Works with any language. | `/commit-plan`, or ask for a "commit plan" |
 
 ## Install
 
