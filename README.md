@@ -8,6 +8,7 @@
 |---|---|---|
 | [`commit-plan`](skills/commit-plan/SKILL.md) | Splits every uncommitted change into commit-ready groups, writes a Conventional Commits title for each, and prints a ready-to-run block that commits and pushes them in dependency order. It only reads: it never stages, commits or pushes. Works with any language. | `/commit-plan`, or ask for a "commit plan" |
 | [`write-rspec`](skills/write-rspec/SKILL.md) | Writes new RSpec specs and revises existing ones for the changes on your branch, following a bundled testing manifesto. It runs them and reports a bug in the code instead of bending a test around it. Needs a Ruby project with an RSpec suite. | `/write-rspec [uncommitted \| committed \| hybrid]` |
+| [`prune-comments`](skills/prune-comments/SKILL.md) | Removes comments that carry no information, shortens the rest to what the code can't say, and lists the ones that need a person: contradictions, unfinished code, security issues. It never changes code or comments that tools read. Works with any language, and runs only when you call it. | `/prune-comments [path \| glob \| git-range] [--hard] [--dry-run]` |
 
 ## Install
 
