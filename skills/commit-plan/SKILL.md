@@ -77,9 +77,9 @@ Foundations first: a group that another group depends on comes before it. When n
 
 Conventional Commits, in **English**, derived from that group's slice of the diff.
 
-**The message consists solely of the title. This is a zero-tolerance requirement.** Exactly one `-m` per commit; never add a body, a footer, or a second `-m`. Write the title in the imperative mood, at most 72 characters, with a lowercase subject after the `type(scope):` prefix. Count each title's characters yourself before printing it (no command needed), and shorten any that runs over.
+**The message consists solely of the title. This is a zero-tolerance requirement.** Exactly one `-m` per commit; never add a body, a footer, or a second `-m`. Write the title in the imperative mood, at most 72 characters. After the `type(scope):` prefix, start with a lowercase verb and keep every other word in its usual case: proper nouns, acronyms, file names and identifiers stay as written (`MIT`, `macOS`, `README.md`, `CSV`, `UserService`). Count each title's characters yourself before printing it (no command needed), and shorten any that runs over.
 
-**Be specific.** Name the concrete resource, action, template, or key the group changes and what changed about it — pull the nouns from the diff, and use the full 72 characters when it buys precision. Generic subjects are banned: not `refactor(api): update handlers` but `refactor(api): move invoice pdf rendering out of the orders handler`; not `fix(ui): fix search` but `fix(ui): keep search filters when paging through results`.
+**Be specific.** Name the concrete resource, action, template, or key the group changes and what changed about it — pull the nouns from the diff, and use the full 72 characters when it buys precision. Generic subjects are banned: not `refactor(api): update handlers` but `refactor(api): move invoice PDF rendering out of the orders handler`; not `fix(ui): fix search` but `fix(ui): keep search filters when paging through results`.
 
 Prefix = the group's dominant change: `feat` (new capability) · `fix` (bug) · `refactor` (restructure, no behavior change) · `perf` · `test` · `docs` · `style` (formatting) · `build` (deps/build) · `ci` · `chore` · `revert`.
 
@@ -120,11 +120,11 @@ Exactly two parts, in English — no preamble, rationale prose, closing summary,
 # 0 — go to the repository root and unstage everything so each commit contains exactly its group
 cd "$(git rev-parse --show-toplevel)" && git reset
 
-# 1 — feat(db): add invoice_exports table for queued csv exports
-git add db/migrations/20261031120000_create_invoice_exports.sql && git commit -m 'feat(db): add invoice_exports table for queued csv exports' && git push origin feature/invoice-export || git reset -q
+# 1 — feat(db): add invoice_exports table for queued CSV exports
+git add db/migrations/20261031120000_create_invoice_exports.sql && git commit -m 'feat(db): add invoice_exports table for queued CSV exports' && git push origin feature/invoice-export || git reset -q
 
-# 2 — feat(invoices): build csv export with one row per line item
-git add app/invoices/csv_export.py && git commit -m 'feat(invoices): build csv export with one row per line item' && git push origin feature/invoice-export || git reset -q
+# 2 — feat(invoices): build CSV export with one row per line item
+git add app/invoices/csv_export.py && git commit -m 'feat(invoices): build CSV export with one row per line item' && git push origin feature/invoice-export || git reset -q
 
 # 3 — feat(api): add admin-only POST /invoices/export endpoint
 git add app/invoices/routes.py && git commit -m 'feat(api): add admin-only POST /invoices/export endpoint' && git push origin feature/invoice-export || git reset -q
@@ -132,8 +132,8 @@ git add app/invoices/routes.py && git commit -m 'feat(api): add admin-only POST 
 # 4 — feat(ui): add export button and status badge to invoice list
 git add templates/invoices/ && git commit -m 'feat(ui): add export button and status badge to invoice list' && git push origin feature/invoice-export || git reset -q
 
-# 5 — test(invoices): cover csv export rows and admin-only export endpoint
-git add tests/invoices/test_csv_export.py tests/api/test_export_endpoint.py && git commit -m 'test(invoices): cover csv export rows and admin-only export endpoint' && git push origin feature/invoice-export || git reset -q
+# 5 — test(invoices): cover CSV export rows and admin-only export endpoint
+git add tests/invoices/test_csv_export.py tests/api/test_export_endpoint.py && git commit -m 'test(invoices): cover CSV export rows and admin-only export endpoint' && git push origin feature/invoice-export || git reset -q
 ```
 
 Report only — print the groups and the block. **Never run `git add`, `git commit`, or `git push` yourself**; the user runs it.
